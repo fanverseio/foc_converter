@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Converter</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  </head>
+    <body>
+  <!-- tab1 -->
+  <div class="container">
+      <h3>Decimal to Binary</h3>
+      <div class="content">
+        <div class="input-part">
+          <input class="input-area" type="number" placeholder="enter your decimal number here" />
+          <div class="convert-btns">
+            <button id="button" class="randomNum">Random Number</button>
+            <button id="button" class="refresh">Refresh</button>
+            <button id="button" class="convert">Convert</button>
+          </div>
+        </div>
+        <div class="div-line"></div>
+        <!-- result to unsigned-->
+        <div class="result-container">
+          <h4>To Unsigned Binary</h4>
+          <div class="result">
+            <input disabled
+            id="unsigned-binary"
+              class="result-area"
+              placeholder="To Unsigned Binary"
+              type="notallowed"
+            ></inpu>
+            <button id="button" class="copy-button">Copy</button>
+          </div>
+        </div>
+        <!-- result -->
+
+        <!-- result to unsigned-->
+        <div class="result-container">
+          <h4>To One's Complement</h4>
+          <div class="result">
+            <input disabled
+                id="ones-complement"
+              class="result-area"
+              placeholder="To One's Complement"
+              type="notallowed"
+            ></inpu>
+            <button id="button" class="copy-button">Copy</button>
+          </div>
+        </div>
+        <!-- result -->
+
+                <!-- result to unsigned-->
+        <div class="result-container">
+          <h4>To Two's Complement</h4>
+          <div class="result">
+            <input disabled
+                id="twos-complement"
+              class="result-area"
+              placeholder="To Two's Complement"
+              type="notallowed"
+            ></inpu>
+            <button id="button" class="copy-button">Copy</button>
+          </div>
+        </div>
+        <br>
+        <!-- result -->
+
+                <div class="div-line"></div>
+
+        <!-- steps -->
+        <div class="steps-container">
+
+          <div class="icons-wrapper">
+  <h3>Steps | Examples</h3>
+
+<svg xmlns="http://www.w3.org/2000/svg" class="iconBtn active" width="25" height="25" viewBox="0 0 256 256"><path fill="currentColor" d="M245.48 125.57c-.34-.78-8.66-19.23-27.24-37.81C201 70.54 171.38 50 128 50S55 70.54 37.76 87.76c-18.58 18.58-26.9 37-27.24 37.81a6 6 0 0 0 0 4.88c.34.77 8.66 19.22 27.24 37.8C55 185.47 84.62 206 128 206s73-20.53 90.24-37.75c18.58-18.58 26.9-37 27.24-37.8a6 6 0 0 0 0-4.88ZM128 194c-31.38 0-58.78-11.42-81.45-33.93A134.77 134.77 0 0 1 22.69 128a134.56 134.56 0 0 1 23.86-32.06C69.22 73.42 96.62 62 128 62s58.78 11.42 81.45 33.94A134.56 134.56 0 0 1 233.31 128C226.94 140.21 195 194 128 194Zm0-112a46 46 0 1 0 46 46a46.06 46.06 0 0 0-46-46Zm0 80a34 34 0 1 1 34-34a34 34 0 0 1-34 34Z"/></svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" class="iconBtn " width="25" height="25" viewBox="0 0 32 32"><path fill="currentColor" d="M16 2C8.2 2 2 8.2 2 16s6.2 14 14 14s14-6.2 14-14S23.8 2 16 2zm0 26C9.4 28 4 22.6 4 16S9.4 4 16 4s12 5.4 12 12s-5.4 12-12 12z"/><path fill="currentColor" d="M21.4 23L16 17.6L10.6 23L9 21.4l5.4-5.4L9 10.6L10.6 9l5.4 5.4L21.4 9l1.6 1.6l-5.4 5.4l5.4 5.4z"/></svg>
+
+
+</div>
+ 
+
+
+          
+
+
+          <div class="steps">
+
+
+
+            <p>
+            Here are the steps to convert decimal to binary. The first step is to find the largest power of 2 that is less than or equal to the given number. And keep subtracting the largest power of 2 found from the given number until we get zero. 
+            </p>
+            <h4>To Unsigned Binary</h4>
+            <div class="steps-list">
+            <ul>
+                <li>Divide the decimal number by 2 and note the remainder (either 0 or 1). </li>
+                <li>Divide the quotient from the previous step by 2 and note the remainder again. </li>
+                <li>Repeat step 2 until the quotient becomes 0.</li>
+                <li>Write the remainders in reverse order (from the last to the first) to obtain the binary representation.</li>
+            </ul>
+            <p style="display: inline;">For example, your number is: </p><p id="userNumber" style="display: inline; color:red;">&nbsp;&nbsp;&nbsp;</p>
+
+            <ul id="unsigned-steps">
+
+            </ul>
+            <p>And now reverse the above sequence, and the result is: </p><p id="unsigned-steps-result"></p>
+            </div>
+            <h4>To One's Complement</h4>
+            <div class="steps-list">
+            
+              <p>Simply reverse the unsigned binary. If it's a negative number, add 1 to the beginning of the binary number.</p>
+              <p id="unsignedToOnes"></p>
+            </div>
+                        <h4>To Two's Complement</h4>
+            <div class="steps-list">
+            
+              <p>To convert to two's complement, add 1 to the one's completement binary.</p>
+                           <!-- <p id="unsignedToOnes"></p>
+                           <p id="addOne" style="color: red;"></p> -->
+              <p id="unsignedToTwos"></p>
+            </div>
+
+            
+
+
+          </div>
+        </div>
+        <!-- steps -->
+                            <div class="div-line"></div>
+      </div>
+    </div>
+    <footer>
+      <p>For those studying CS | Designed with ❤️</p>
+                      <div class="div-line"></div>
+    </footer>
+      
+    <!-- end of html -->
+
+      <script>
+
+       let iconBtn = document.querySelectorAll(".iconBtn");
+       let steps = document.querySelector(".steps");
+       const randomBtn = document.querySelector(".randomNum");
+        const refreshBtn = document.querySelector(".refresh");
+        const convertBtn = document.querySelector(".convert");
+        let unsignedSteps  = document.getElementById("unsigned-steps");       
+        const unsignText = document.getElementById("unsigned-binary");
+
+        const onesComplement = document.getElementById("ones-complement");
+
+        let twosComplement = document.getElementById("twos-complement");
+
+       iconBtn.forEach((btn) => {
+         btn.addEventListener("click", () => {
+           iconBtn.forEach((btn) => btn.classList.toggle("active"));
+            steps.classList.toggle("active");
+         });
+       });
+
+        randomBtn.addEventListener("click", () => {
+          let randomNum = Math.floor(Math.random() * (1024 - (-1024) + 1)) - 1024;
+          document.querySelector(".input-area").value = randomNum;
+        });
+
+        refreshBtn.addEventListener("click", () => {
+          document.querySelector(".input-area").value = "";
+          document.querySelector("#unsigned-binary").value = "";
+          document.querySelector("#ones-complement").value = "";
+          document.querySelector("#twos-complement").value = "";
+          document.getElementById("userNumber").innerHTML = "";
+
+          // Remove all li elements from unsignedSteps
+          while (unsignedSteps.firstChild) {
+            unsignedSteps.removeChild(unsignedSteps.firstChild);
+          }
+        });
+
+
+        convertBtn.addEventListener("click", convertAlgo);
+
+        //! main function
+
+        function convertAlgo (){
+          let decimalValue = Math.abs(document.querySelector(".input-area").value);
+
+          let remainValue;
+
+          const num = nearestPowerOfTwo(decimalValue);
+
+          const n = Math.log2(num);
+
+          function decArray(n) {
+            const array = [];
+
+            for (let i = n; i >= 1; i = i / 2) {
+              array.push(i);
+            }
+
+            return array;
+          }
+
+          let decArrayResult = decArray(num);
+  
+
+          let biArray = new Array(n+1).fill(0);
+
+
+
+         for (i=0;i<decArrayResult.length;i++){
+           while (decimalValue >= decArrayResult[i]){
+             biArray[i] = 1;
+             decimalValue -= decArrayResult[i];
+           }
+         }
+
+         // The binary result
+          const biArrayResult = biArray.join("");
+
+        //  filling in the unsigned binary
+
+          if (document.querySelector(".input-area").value < 0){
+            unsignText.value = "-" + biArrayResult;
+          } else {
+         unsignText.value = biArrayResult;
+
+
+
+
+
+
+
+
+         
+          }
+
+          // filling in the ones complement
+
+          if (document.querySelector(".input-area").value > 0) {
+            let onesComplementValue = "";
+            unsignText.value.split("").forEach((item) => {
+              if (item === "0") {
+                onesComplementValue += "1";
+              } else {
+                onesComplementValue += "0";
+              }
+            });
+            onesComplement.value = onesComplementValue;
+          } else if ((document.querySelector(".input-area").value < 0)){
+            let onesComplementValue = "";
+            unsignText.value.split("").forEach((item) => {
+              if (item === "0") {
+                onesComplementValue += "1";
+              } else if (item === "1"){
+                onesComplementValue += "0";
+              } else if (item === "-"){
+                onesComplementValue += "1";
+              }
+            });
+            onesComplement.value = onesComplementValue;
+
+          } 
+
+          let unsignedToOnes = document.querySelectorAll("#unsignedToOnes");
+
+          unsignedToOnes.forEach((item) => {
+            item.innerHTML = onesComplement.value;
+                      item.style.color = "red";
+          item.style.fontSize = "1.25rem";
+          item.style.textAlign = "center";
+          });
+
+
+            
+          
+
+     
+          // filling in the twos complement
+
+          // twosComplement.value = "Hello";
+
+          if (document.querySelector(".input-area").value > 0) {
+
+              twosComplement.value = onesComplement.value;
+            for (i = onesComplement.value.length - 1; i >= 0; i--) {
+              if (onesComplement.value[i] === "0") {
+                twosComplement.value =
+                  twosComplement.value.substring(0, i) +
+                  "1" +
+                  twosComplement.value.substring(i + 1);
+                break;
+              } else {
+                twosComplement.value =
+                  twosComplement.value.substring(0, i) +
+                  "0" +
+                  twosComplement.value.substring(i + 1);
+              }
+            }
+          
+          } else if (document.querySelector(".input-area").value < 0) {
+            twosComplement.value = onesComplement.value;
+            for (i = onesComplement.value.length - 1; i >= 0; i--) {
+              if (onesComplement.value[i] === "0") {
+                twosComplement.value =
+                  twosComplement.value.substring(0, i) +
+                  "1" +
+                  twosComplement.value.substring(i + 1);
+                break;
+              } else {
+                twosComplement.value =
+                  twosComplement.value.substring(0, i) +
+                  "0" +
+                  twosComplement.value.substring(i + 1);
+              }
+            }
+          } else {
+            twosComplement.value = "0";
+          }
+
+          // addOne
+
+          // let addOne = document.getElementById("addOne");
+          // addOne.styly.textAlign = "center";
+          // addOne.innerText = "      " + "1";
+
+          
+
+          // console.log(addOne.innerText);
+
+          
+
+
+          let toTwos = document.getElementById("unsignedToTwos");
+          toTwos.innerHTML = twosComplement.value;
+          toTwos.style.color = "red";
+          toTwos.style.fontSize = "1.25rem";
+          toTwos.style.textAlign = "center";
+
+        // console.log(unsignText.value);
+        // console.log(onesComplement.value);
+        // console.log(twosComplement.value);
+
+        //! Steps and Functions
+
+            let userNumber = document.getElementById("userNumber");
+
+            userNumber.innerText = " " + document.querySelector(".input-area").value;
+
+
+          // while (userNumebr >0){
+          //   const li = document.createElement("li");
+          //   let remainder = userNumber % 2;
+          //   binaryString = remainder + binaryString;
+          //   userNumber = Math.floor(userNumber / 2);
+          //   console.log(userNumber);
+          //   li.innerText = "step " + i + ": " + userNumber + " / 2 = " + userNumber + " remainder " + remainder;
+          //   unsignedSteps.appendChild(li);
+          // }
+
+let remainingNumberArray = [];
+let inputNumber = Math.abs(document.querySelector(".input-area").value);
+
+for (let i = 0; i < n+1; i++) {
+  let remainder = inputNumber % 2;
+  if (remainder == 0){
+    biArray[i] = 0;
+  } else {
+    biArray[i] = 1;
+  }
+
+  remainingNumber = Math.floor(inputNumber / 2);
+  remainingNumberArray.push(inputNumber);
+
+  const li = document.createElement("li");
+  inputNumber = Math.floor(inputNumber / 2);
+  li.innerText = "step " + (i + 1) + ": " + remainingNumberArray[i] + " / 2 = " + inputNumber + " remainder " + remainder;
+  unsignedSteps.appendChild(li);
+}
+
+document.getElementById("unsigned-steps-result").innerText = biArrayResult;
+// document.getElementById("unsigned-steps-result").style.fontWeight = "bold";
+document.getElementById("unsigned-steps-result").style.fontSize = "1.25rem";
+document.getElementById("unsigned-steps-result").style.textAlign = "center";
+document.getElementById("unsigned-steps-result").style.color = "red";
+
+
+
+
+
+
+        }
+
+        function nearestPowerOfTwo(num) {
+          const exponent = Math.floor(Math.log2(num));
+          return Math.pow(2, exponent);
+        }
+
+        // copy buttons
+
+        const copyBtns = document.querySelectorAll(".copy-button");
+
+ 
+        copyBtns.forEach((btn, index) => {
+          btn.addEventListener("click", () => {
+            if (index === 0) {
+             unsignText.select();
+             let originalValue = unsignText.value;
+             navigator.clipboard.writeText(unsignText.value);
+             unsignText.value = "Copied";
+
+              setTimeout(() => {
+                unsignText.value = originalValue;
+              }, 1000);
+
+            } else if (index === 1) {
+              onesComplement.select();
+              let originalValue1 = unsignText.value;
+             navigator.clipboard.writeText(onesComplement.value);
+             onesComplement.value = "Copied";
+
+              setTimeout(() => {
+                onesComplement.value = originalValue1;
+              }, 1000);
+            } else if (index === 2) {
+               twosComplement.select();
+              let originalValue2 = twosComplement.value;
+             navigator.clipboard.writeText(twosComplement.value);
+             twosComplement.value = "Copied";
+
+              setTimeout(() => {
+                twosComplement.value = originalValue2;
+            },1000);
+            }
+          });
+
+
+
+
+        });
+
+
+
+      </script>
+
+</body>
+</html>
