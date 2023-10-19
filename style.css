@@ -43,11 +43,11 @@ body {
   height: auto;
   margin: 30px auto;
   padding: 5px 20px;
-  border: 0.5px solid var(--bright-grey);
-  border-radius: 38px;
+  /* border: 0.5px solid var(--bright-grey); */
+  /* border-radius: 38px; */
   /* overflow: hidden; */
   background-color: var(--dark-grey);
-  box-shadow: 5px 5px 7px 1px rgba(98, 98, 98, 0.3);
+  /* box-shadow: 5px 5px 7px 1px rgba(98, 98, 98, 0.3); */
 }
 
 .container h3 {
@@ -137,10 +137,19 @@ input::-webkit-outer-spin-button {
 
   background-color: var(--mid-grey);
   border: none;
-  color: red;
+  color: white;
   font-weight: bold;
 
   font-size: 1.5rem;
+}
+
+@media screen and (max-width: 400px) {
+  .result .result-area {
+    color: white;
+    font-weight: bold;
+
+    font-size: 1.5rem;
+  }
 }
 
 .result .copy-button {
@@ -166,7 +175,7 @@ input::-webkit-outer-spin-button {
 }
 
 .steps.active {
-  height: 1050px;
+  height: 90%;
   transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out 0.5s;
   opacity: 1;
 }
